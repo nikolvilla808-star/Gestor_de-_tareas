@@ -1,15 +1,23 @@
-// App.jsx - mi primer componenete de React
+// App.jsx — el componente principal que reúne los componentes de la aplicación
+
+import Encabezado from './componentes/Encabezado'
+import Formulario from './componentes/Formulario'
+import Lista from './componentes/Lista'
+import Item from './componentes/Item'
+import PiePagina from './componentes/PiePagina'
 import './App.css'
 
-function App() {
-  //TODO prendiz: cambia este titulo por el nombre de tu proyecto
-  const GestorTareas = "Gestor de Tareas  "
 
-  return(
-    <div className="App">
-      <h1>{GestorTareas}</h1>
-    <p>Si ves este texto react esta funcionando correctamente</p>  
+function App() {
+  return (
+    <div className="app">
+      <Encabezado />
+      <Formulario />
+      <Lista />
+      <Item />
+      <PiePagina />
     </div>
   )
 }
+
 export default App
