@@ -1,3 +1,22 @@
+# Mi Proyecto 
+App móvil construida con React Native y Expo. 
+## Mockup inicial 
+![Mockup](./docs/mockup.png) 
+
+## Estado actual (Sprint 2) 
+![App](./docs/app-sprint2.png) 
+
+## Cómo correr este proyecto 
+1. npm install
+2. npx expo start 
+3. Escanea el QR con Expo Go en tu celular
+
+
+
+
+
+
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
