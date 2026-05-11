@@ -1,11 +1,20 @@
-// Lista.jsx — mostrará todos los items
-function Lista() {
+// Lista.jsx — usa estructura similar a FlatList para pintar todos los items
+import Item from './Item'
+
+// eslint-disable-next-line react/prop-types
+export default function Lista({ tareas = [] }) {
     return (
-        <section>
-            <h2>Soy la lista</h2>
-            <p>Aquí se verán todas las tareas agregadas</p>
-        </section>
-    );
+        <div style={estilos.contenedor}>
+            {tareas.map((item) => (
+                <Item key={item.id.toString()} tarea={item} />
+            ))}
+        </div>
+    )
 }
 
-export default Lista;
+const estilos = {
+    contenedor: {
+        paddingVertical: 8,
+        padding: '8px 0',
+    },
+}
