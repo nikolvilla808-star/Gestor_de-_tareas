@@ -1,28 +1,33 @@
-// Encabezado.jsx - Componente de encabezado para la aplicación
-import { View, Text, StyleSheet } from 'react-native';
-
+// Encabezado.jsx — versión mejorada
+// eslint-disable-next-line react/prop-types
 export default function Encabezado({ titulo, subtitulo }) {
   return (
-    <View style={styles.encabezado}>
-      <Text style={styles.titulo}>{titulo}</Text>
-      {subtitulo && <Text style={styles.subtitulo}>{subtitulo}</Text>}
-    </View>
-  );
+    <header style={estilos.encabezado}>
+      <h1 style={estilos.titulo}>{titulo}</h1>
+      <p style={estilos.subtitulo}>{subtitulo}</p>
+    </header>
+  )
 }
 
-const styles = StyleSheet.create({
+const estilos = {
   encabezado: {
-    padding: 20,
     backgroundColor: '#1F3864',
+    paddingVertical: 28,
+    paddingHorizontal: 20,
+    padding: '28px 20px',
+    textAlign: 'center',
+    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.15)',
   },
   titulo: {
-    fontSize: 22,
+    fontSize: 26,
     fontWeight: 'bold',
     color: '#fff',
+    marginBottom: 4,
+    margin: 0,
   },
   subtitulo: {
     fontSize: 14,
     color: '#cdd5e0',
-    marginTop: 4,
+    margin: 0,
   },
-});
+}

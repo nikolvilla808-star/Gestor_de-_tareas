@@ -1,11 +1,26 @@
-// PiePagina.jsx — información inferior de la app
+// PiePagina.jsx — versión mejorada
 
-function PiePagina() {
+export default function PiePagina() {
     return (
-        <footer>
-            <p>Creado por "Nikol Villa · SENA 2026"</p>
+        <footer style={estilos.pie}>
+            <p style={estilos.texto}>Creado por Nikol Villa · SENA 2026</p>
         </footer>
     );
 }
 
-export default PiePagina;
+const estilos = {
+    pie: {
+        paddingVertical: 16,
+        paddingTop: 16,
+        paddingBottom: 16,
+        textAlign: 'center',
+        borderTopWidth: 1,
+        borderTop: '1px solid #e0e0e0',
+        backgroundColor: '#fff',
+    },
+    texto: {
+        fontSize: 12,
+        color: '#888',
+        margin: 0,
+    },
+};
