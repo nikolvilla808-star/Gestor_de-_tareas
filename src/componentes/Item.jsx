@@ -1,54 +1,91 @@
-// Item.jsx — versión mejorada con flexbox
+import { useState } from 'react'
 
-// eslint-disable-next-line react/prop-types
-export default function Item({ tarea = { texto: 'Tarea de ejemplo', completada: false } }) {
-    return (
-        <article style={estilos.item}>
-            <p style={estilos.texto}>{tarea.texto}</p>
-            <span style={{
-                ...estilos.estado,
-                ...(tarea.completada ? estilos.completada : estilos.pendiente)
-            }}>
-                {tarea.completada ? 'Lista' : 'Pendiente'}
-            </span>
-        </article>
-    );
-}
+export default function Item({ tarea }) {
+  const [resaltado, setResaltado] = useState(false)
+
+  const manejarCompletar = (evento) => {
+    evento.stopPropagation()
+    alert(`Completar: ${tarea.texto}`)
+  }
+
+  const manejarEliminar = (evento) => {
+    evento.stopPropagation()
+    alert(`Eliminar: ${tarea.texto}`)
+  }
+
+  return (
+    <article
+      onClick={() => setResaltado(!resaltado)}
+      style={{
+        ...estilos.item,
+        ...(resaltado ? estilos.resaltado : {}),
+      }}
+       >
+      <div>
+        <p style={estilos.texto}>{tarea.texto}</p>
+
+        <span
+          style={{
+            ...estilos.estado,
+            ...(tarea.completada
+              ? estilos.completada
+              : estilos.pendiente),
+          }}
+        >
+          {tarea.completada ? 'Lista' : 'Pendiente'}
+        </span>
+      </div>
+
+      <div style={estilos.acciones}>
+        <button onClick={manejarCompletar}>✓</button>
+        <button onClick={manejarEliminar}>✕</button>
+      </div>
+    </article>
+  )
+  }
 
 const estilos = {
-    item: {
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        backgroundColor: '#fff',
-        padding: 16,
-        margin: '4px 12px',
-        borderRadius: 8,
-        border: '1px solid #e0e0e0',
-    },
-    texto: {
-        fontSize: 16,
-        flex: 1,
-        margin: 0,
-    },
-    estado: {
-        fontSize: 12,
-        fontWeight: 'bold',
-        paddingLeft: 10,
-        paddingRight: 10,
-        paddingTop: 4,
-        paddingBottom: 4,
-        borderRadius: 12,
-        whiteSpace: 'nowrap',
-        marginLeft: 16,
-    },
-    completada: {
-        backgroundColor: '#d4edda',
-        color: '#155724',
-    },
-    pendiente: {
-        backgroundColor: '#fff3cd',
-        color: '#856404',
-    },
-};
+  item: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    padding: 16,
+    margin: '10px 0',
+    borderRadius: 8,
+    border: '1px solid #ddd',
+    cursor: 'pointer',
+  },
+
+  resaltado: {
+    backgroundColor: '#fff3cd',
+    border: '1px solid #ffc107',
+  },
+
+  texto: {
+    margin: 0,
+    marginBottom: 8,
+     },
+
+  estado: {
+    padding: '4px 10px',
+    borderRadius: 12,
+    fontSize: 12,
+    fontWeight: 'bold',
+  },
+
+  completada: {
+    backgroundColor: '#d4edda',
+    color: '#155724',
+  },
+
+  pendiente: {
+    backgroundColor: '#fff3cd',
+    color: '#856404',
+  },
+
+  acciones: {
+    display: 'flex',
+    gap: '8px',
+  },
+}
