@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Ignorar archivos de documentación y tareas locales
+*.pdf
