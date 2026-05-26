@@ -1,4 +1,4 @@
-﻿import { useState } from 'react'
+﻿import { useState, useEffect } from 'react'
 import Encabezado from './componentes/Encabezado'
 import Formulario from './componentes/Formulario'
 import Lista from './componentes/Lista'
@@ -7,11 +7,14 @@ import './App.css'
 
 function App() {
   const [mostrarFormulario, setMostrarFormulario] = useState(false)
-  const [tareas, setTareas] = useState([
-    { id: 1, texto: 'Estudiar React', completada: false },
-    { id: 2, texto: 'Hacer ejercicio', completada: true },
-    { id: 3, texto: 'Leer 10 páginas', completada: false },
-  ])
+  const [tareas, setTareas] = useState(() => {
+    const tareasGuardadas = window.localStorage.getItem('tareas')
+    return tareasGuardadas ? JSON.parse(tareasGuardadas) : [
+      { id: 1, texto: 'Estudiar React', completada: false },
+      { id: 2, texto: 'Hacer ejercicio', completada: true },
+      { id: 3, texto: 'Leer 10 páginas', completada: false },
+    ]
+  })
 
   const agregarTarea = (texto) => {
     setTareas((prevTareas) => [
@@ -32,6 +35,10 @@ function App() {
   const eliminarTarea = (id) => {
     setTareas((prevTareas) => prevTareas.filter((tarea) => tarea.id !== id))
   }
+
+  useEffect(() => {
+    window.localStorage.setItem('tareas', JSON.stringify(tareas))
+  }, [tareas])
 
   const tareasCompletadas = tareas.filter((tarea) => tarea.completada).length
   const tareasPendientes = tareas.length - tareasCompletadas

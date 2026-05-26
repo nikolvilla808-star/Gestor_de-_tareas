@@ -19,6 +19,10 @@ Aplicación web de gestión de tareas creada con React y Vite.
 
 El tema actual usa un estilo morado con tarjetas translúcidas y botones destacados para que la interfaz se vea moderna y más fácil de usar.
 
+## Persistencia
+
+Las tareas se guardan en el navegador usando `localStorage`, por lo que permanecen tras recargar la página.
+
 ## Historial de sprints
 
 Este repositorio usa tags para identificar los principales sprints:
@@ -35,7 +39,3 @@ Puedes ver estos tags con:
 ```bash
 git tag --list
 ```
-
-## Nota
-
-Los archivos PDF de los sprints se mantienen locales y no deben subirse a GitHub.
