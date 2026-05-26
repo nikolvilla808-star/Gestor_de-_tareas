@@ -1,13 +1,14 @@
 .app {
-  max-width: 760px;
-  width: min(100%, 760px);
+  max-width: 840px;
+  width: min(100%, 840px);
   margin: 0 auto;
-  padding: 24px;
+  padding: 28px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
   min-height: 100vh;
-  background: #f5f7fb;
+  background: radial-gradient(circle at top, #8b5cf6 0%, #6d28d9 45%, #4c1d95 100%);
+  color: #f8fafc;
 }
 
 .panel-control {
@@ -15,58 +16,65 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  gap: 16px;
+  gap: 18px;
 }
 
 .boton-toggle {
-  background: #1f3864;
-  color: #ffffff;
+  background: #c084fc;
+  color: #1f1f29;
   border: none;
-  padding: 14px 20px;
-  border-radius: 12px;
+  padding: 14px 24px;
+  border-radius: 16px;
   cursor: pointer;
   font-size: 16px;
-  transition: background 0.2s ease, transform 0.15s ease;
+  font-weight: 700;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
 }
 
 .boton-toggle:hover {
-  background: #162d53;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px rgba(120, 74, 255, 0.24);
 }
 
 .resumen {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  color: #374151;
+  gap: 14px;
+  color: #e9d5ff;
   font-weight: 600;
 }
 
 .formulario {
-  background: #ffffff;
-  border: 1px solid #dbe2ec;
-  border-radius: 18px;
-  padding: 24px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 22px;
+  padding: 26px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 18px;
+  backdrop-filter: blur(12px);
+}
+
+.formulario h2 {
+  color: #f8fafc;
 }
 
 .formulario input {
   width: 100%;
-  padding: 14px 16px;
-  border: 1px solid #cbd5e1;
-  border-radius: 12px;
+  padding: 16px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 14px;
   font-size: 16px;
   color: #111827;
+  background: #fafafa;
 }
 
 .formulario button {
   width: fit-content;
-  padding: 12px 18px;
+  padding: 14px 20px;
   border: none;
-  border-radius: 12px;
-  background: #1f3864;
+  border-radius: 14px;
+  background: #8b5cf6;
   color: #ffffff;
   font-size: 16px;
   cursor: pointer;
@@ -75,7 +83,7 @@
 .lista {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
 }
 
 .item {
@@ -83,78 +91,78 @@
   justify-content: space-between;
   align-items: center;
   gap: 18px;
-  background: #ffffff;
-  padding: 18px;
-  border-radius: 16px;
-  border: 1px solid #e2e8f0;
+  background: rgba(255, 255, 255, 0.16);
+  padding: 20px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
   cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
 }
 
 .item:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+  transform: translateY(-2px);
+  box-shadow: 0 22px 40px rgba(76, 29, 149, 0.18);
+  background: rgba(255, 255, 255, 0.22);
 }
 
 .resaltado {
-  background: #fff8e1;
-  border-color: #ffe58f;
+  background: rgba(196, 181, 253, 0.32);
 }
 
 .texto {
   margin: 0;
   margin-bottom: 10px;
-  font-size: 16px;
-  font-weight: 600;
-  color: #111827;
+  font-size: 17px;
+  font-weight: 700;
+  color: #f8fafc;
 }
 
 .estado {
   display: inline-flex;
   align-items: center;
-  padding: 6px 12px;
+  padding: 8px 14px;
   border-radius: 999px;
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
 }
 
 .completada {
-  background: #d4edda;
-  color: #155724;
+  background: rgba(110, 231, 183, 0.2);
+  color: #d1fae5;
 }
 
 .pendiente {
-  background: #fff3cd;
-  color: #856404;
+  background: rgba(67, 56, 202, 0.22);
+  color: #ede9fe;
 }
 
 .acciones {
   display: flex;
-  gap: 10px;
+  gap: 12px;
 }
 
 .acciones button {
-  width: 38px;
-  height: 38px;
+  width: 42px;
+  height: 42px;
   border: none;
-  border-radius: 12px;
-  background: #eef2ff;
-  color: #1f3864;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.18);
+  color: #f8fafc;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .acciones button:hover {
-  background: #dbeafe;
+  background: rgba(255, 255, 255, 0.28);
 }
 
 .mensaje-vacio {
   text-align: center;
-  color: #6b7280;
+  color: #f3e8ff;
   font-size: 16px;
-  padding: 40px 0;
+  padding: 44px 0;
 }
 
 footer {

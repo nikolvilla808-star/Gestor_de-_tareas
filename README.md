@@ -1,35 +1,41 @@
-# Mi Proyecto 
-App móvil construida con React Native y Expo. 
-## Mockup inicial 
-![Mockup](./docs/mockup.png) 
+﻿# Gestor de Tareas
 
-## Estado actual (Sprint 2) 
-![App](./docs/app-sprint2.png) 
+Aplicación web de gestión de tareas creada con React y Vite.
 
-## Cómo correr este proyecto 
+## Funcionalidad
+
+- Agregar nuevas tareas
+- Marcar tareas como completadas
+- Eliminar tareas
+- Ver resumen de tareas completas y pendientes
+
+## Cómo ejecutar
+
 1. npm install
-2. npx expo start 
-3. Escanea el QR con Expo Go en tu celular
+2. npm run dev
+3. Abre `http://localhost:5173`
 
+## Diseño
 
+El tema actual usa un estilo morado con tarjetas translúcidas y botones destacados para que la interfaz se vea moderna y más fácil de usar.
 
+## Historial de sprints
 
+Este repositorio usa tags para identificar los principales sprints:
 
+- `sprint-1`: proyecto inicial creado con Vite
+- `sprint-2`: formulario de tareas y estructura básica de la app
+- `sprint-3`: componente Item y acciones básicas
+- `sprint-4`: renderizado de lista y mejoras de estructura
+- `sprint-5`: diseño con flexbox y estilo mejorado
+- `sprint-6`: funcionalidad completa de tareas con agregar, completar y eliminar
 
+Puedes ver estos tags con:
 
-# React + Vite
+```bash
+git tag --list
+```
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Nota
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Los archivos PDF de los sprints se mantienen locales y no deben subirse a GitHub.
