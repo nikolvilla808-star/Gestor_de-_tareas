@@ -1,91 +1,39 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 
-export default function Item({ tarea }) {
+export default function Item({ tarea, onCompletar, onEliminar }) {
   const [resaltado, setResaltado] = useState(false)
 
   const manejarCompletar = (evento) => {
     evento.stopPropagation()
-    alert(`Completar: ${tarea.texto}`)
+    onCompletar(tarea.id)
   }
 
   const manejarEliminar = (evento) => {
     evento.stopPropagation()
-    alert(`Eliminar: ${tarea.texto}`)
+    onEliminar(tarea.id)
   }
 
   return (
     <article
-      onClick={() => setResaltado(!resaltado)}
-      style={{
-        ...estilos.item,
-        ...(resaltado ? estilos.resaltado : {}),
-      }}
-       >
+      className={`item ${resaltado ? 'resaltado' : ''}`}
+      onClick={() => setResaltado((prev) => !prev)}
+    >
       <div>
-        <p style={estilos.texto}>{tarea.texto}</p>
+        <p className="texto">{tarea.texto}</p>
 
-        <span
-          style={{
-            ...estilos.estado,
-            ...(tarea.completada
-              ? estilos.completada
-              : estilos.pendiente),
-          }}
-        >
+        <span className={`estado ${tarea.completada ? 'completada' : 'pendiente'}`}>
           {tarea.completada ? 'Lista' : 'Pendiente'}
         </span>
       </div>
 
-      <div style={estilos.acciones}>
-        <button onClick={manejarCompletar}>✓</button>
-        <button onClick={manejarEliminar}>✕</button>
+      <div className="acciones">
+        <button type="button" onClick={manejarCompletar}>
+          ✓
+        </button>
+        <button type="button" onClick={manejarEliminar}>
+          ✕
+        </button>
       </div>
     </article>
   )
-  }
-
-const estilos = {
-  item: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    backgroundColor: '#fff',
-    padding: 16,
-    margin: '10px 0',
-    borderRadius: 8,
-    border: '1px solid #ddd',
-    cursor: 'pointer',
-  },
-
-  resaltado: {
-    backgroundColor: '#fff3cd',
-    border: '1px solid #ffc107',
-  },
-
-  texto: {
-    margin: 0,
-    marginBottom: 8,
-     },
-
-  estado: {
-    padding: '4px 10px',
-    borderRadius: 12,
-    fontSize: 12,
-    fontWeight: 'bold',
-  },
-
-  completada: {
-    backgroundColor: '#d4edda',
-    color: '#155724',
-  },
-
-  pendiente: {
-    backgroundColor: '#fff3cd',
-    color: '#856404',
-  },
-
-  acciones: {
-    display: 'flex',
-    gap: '8px',
-  },
 }
