@@ -1,23 +1,23 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 
-function Formulario() {
+export default function Formulario({ onAgregarTarea }) {
   const [nuevaTarea, setNuevaTarea] = useState('')
 
   const manejarEnvio = (evento) => {
     evento.preventDefault()
 
-    if (nuevaTarea.trim() === '') {
+    const texto = nuevaTarea.trim()
+    if (texto === '') {
       alert('Por favor escribe una tarea')
       return
     }
 
-    alert(`Tarea capturada: ${nuevaTarea}`)
-
+    onAgregarTarea(texto)
     setNuevaTarea('')
   }
 
   return (
-    <form onSubmit={manejarEnvio}>
+    <form className="formulario" onSubmit={manejarEnvio}>
       <h2>Agregar nueva tarea</h2>
 
       <input
@@ -27,11 +27,7 @@ function Formulario() {
         placeholder="Escribe una tarea"
       />
 
-      <button type="submit">
-        Agregar
-      </button>
+      <button type="submit">Agregar</button>
     </form>
   )
 }
-
-export default Formulario

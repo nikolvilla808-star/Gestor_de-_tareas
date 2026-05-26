@@ -1,30 +1,20 @@
-// Lista.jsx — usa estructura similar a FlatList para pintar todos los items
-import Item from './Item'
+﻿import Item from './Item'
 
-// eslint-disable-next-line react/prop-types
-export default function Lista({ tareas = [] }) {
-    return (
-        <div style={estilos.contenedor}>
-            {tareas.length === 0 ? (
-                <p style={estilos.mensajeVacio}>No hay tareas. ¡Agrega una para comenzar!</p>
-            ) : (
-                tareas.map((item) => (
-                    <Item key={item.id.toString()} tarea={item} />
-                ))
-            )}
-        </div>
-    )
-}
-
-const estilos = {
-    contenedor: {
-        padding: '20px',
-        minHeight: '200px',
-    },
-    mensajeVacio: {
-        textAlign: 'center',
-        color: '#999',
-        fontSize: '16px',
-        paddingTop: '40px',
-    },
+export default function Lista({ tareas = [], onAlternarTarea, onEliminarTarea }) {
+  return (
+    <section className="lista">
+      {tareas.length === 0 ? (
+        <p className="mensaje-vacio">No hay tareas. ¡Agrega una para comenzar!</p>
+      ) : (
+        tareas.map((item) => (
+          <Item
+            key={item.id.toString()}
+            tarea={item}
+            onCompletar={onAlternarTarea}
+            onEliminar={onEliminarTarea}
+          />
+        ))
+      )}
+    </section>
+  )
 }
